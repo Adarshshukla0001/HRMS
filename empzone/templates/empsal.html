@@ -1,0 +1,56 @@
+{% extends 'empindex.html' %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+    <div class="col-sm-9">
+<h2 class="text-center p-5 text-primary"><b>View Salary</b></h2>
+
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Field</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Empid</td>
+                <td>{{ s.empid }}</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Empname</td>
+                <td>{{ s.empname }}</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Department</td>
+                <td>{{ s.department }}</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Salary</td>
+                <td>{{ s.salary }}</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Status</td>
+                <td>
+                    {% if s.status %}
+                        <span class="badge bg-warning text-dark">Waiting</span>
+                    {% else %}
+                        <span class="badge bg-success">Received</span>
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+

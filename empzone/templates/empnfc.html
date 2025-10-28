@@ -1,0 +1,28 @@
+{% extends 'empindex.html' %}
+{% block body %}
+
+<h2 class="text-center text-primary p-5"><b>View Notification</b></h2>
+
+<div class="container">
+    <table class="table  table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>ID</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in x %}
+            <tr>
+                <td>{{ forloop.counter }}</td> <!-- Sr. No. column -->
+                <td>{{ i.nfcid }}</td>
+                <td>{{ i.nfc }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+

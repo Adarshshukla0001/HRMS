@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% block body %}
+<h2 class="text-center p-5 text-primary"><b>View Attendance</b></h2>
+<div class="container">
+    <table class="table  table-hover table-bordered">
+        <thead class="table-info">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Department</th>
+                <th>Date</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in a %}
+            <tr>
+                <td>{{ forloop.counter }}</td> <!-- Sr. No. column -->
+                <td>{{ i.empid }}</td>
+                <td>{{ i.empname }}</td>
+                <td>{{ i.department }}</td>
+                <td>{{ i.date }}</td>
+                <td>
+                    {% if i.status %}
+                        <a href="{% url 'adminzone:pr' i.empid %}" class="btn btn-sm btn-success">Present</a>
+                    {% else %}
+                        <a href="{% url 'adminzone:ab' i.empid %}" class="btn btn-sm btn-danger">Absent</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+

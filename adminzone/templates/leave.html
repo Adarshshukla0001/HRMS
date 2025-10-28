@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% block body %}
+
+<h2 class="text-center p-5 text-primary"><b>Leave Application</b></h2>
+<div class="container">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Department</th>
+                <th>Subject</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Reason</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in l %}
+            <tr>
+                <td>{{ forloop.counter }}</td> <!-- Sr. No. column -->
+                <td>{{ i.empid }}</td>
+                <td>{{ i.empname }}</td>
+                <td>{{ i.department }}</td>
+                <td>{{ i.subject }}</td>
+                <td>{{ i.fr }}</td>
+                <td>{{ i.to }}</td>
+                <td>{{ i.msg }}</td>
+                <td>
+                    {% if i.status %}
+                        <a href="{% url 'adminzone:accept' i.empid %}" class="btn btn-sm btn-success">Accept</a>
+                    {% else %}
+                        <a href="{% url 'adminzone:reject' i.empid %}" class="btn btn-sm btn-danger">Reject</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+

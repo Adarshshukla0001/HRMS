@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% block body %}
+
+<h2 class="text-center text-primary p-5"><b>Add Salary</b></h2>
+<div class="container">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in e %}
+            <tr>
+                <td>{{ forloop.counter }}</td> <!-- Sr. No. column -->
+                <td>{{ i.empid }}</td>
+                <td>{{ i.empname }}</td>
+                <td>{{ i.department }}</td>
+                <td>{{ i.salary }}</td>
+                <td>
+                    <a href="{% url 'adminzone:addsal' i.empid %}" class="btn btn-sm btn-primary">
+                        Add
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+

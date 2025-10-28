@@ -1,0 +1,29 @@
+{%extends 'empindex.html'%}
+{% block body%}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <h2 class="text-center p-5"><b>Feedback Form</b></h2>
+            <form action="{%url 'empzone:empfeed' %}" method="post" class="border  w-100 p-5 m-5 rounded-3 mx-auto" style="border-radius:10%; box-shadow: 0 10px 20px #dcd3d3;">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter Your Id" name="empid" id="" class="form-control"><br>
+    <input type="text" placeholder="Enter Your Name" name="empname" class="form-control"><br>
+    <select name="department" id="" class="form-select"><br>
+        <option value="">--Select Department--</option>
+        <option value="Management">Management</option>
+        <option value="Hr">HR</option>
+        <option value="Development">Development</option>
+    </select><br>
+    <select name="feed" id="" class="form-select">
+        <option value="">--Select Feedback Type--</option>
+        <option value="feedback">Feedback</option>
+        <option value="Suggestion">Suggestion</option>
+        <option value="complain">Complain</option>
+    </select><br>
+    <textarea placeholder="Enter Your Message...." name="msg" id="" cols="30" rows="10" class="form-control"></textarea><br>
+    <input type="submit" value="Submit" class="btn btn-outline-secondary form-control">
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

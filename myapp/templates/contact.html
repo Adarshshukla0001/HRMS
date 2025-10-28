@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="row">
+    <h1 class="text-center p-5 text-info"><b>Contact Us</b></h1>
+    <div class="col-sm-12 p-4">
+        <form action="{% url 'contact' %}" method="POST" class="form-group p-5 w-50 mx-auto border rounded-3 bg-light" style="border-radius:10%; box-shadow: 0 10px 20px rgb(199, 27, 27);">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <input class="form-control" type="number" name="mobile" placeholder="Enter your mobile number" required><br>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="name" placeholder="Enter your name" required><br>
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="email" name="email" placeholder="Enter your email" required><br>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" name="msg" id="" cols="30" rows="10" placeholder="Enter your message" required></textarea><br>
+            </div>
+            <div class="text-center">
+                <input class="btn btn-outline-secondary form-control" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

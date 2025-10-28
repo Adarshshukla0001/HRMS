@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% block body%}
+
+<div class="row justify-content-center" >
+<div class="col-sm-8 pt-5">
+<h1 class="text-center"><b> Employee<br>Registration Form</b></h1>
+ <form action="{%url 'adminzone:addemp'%}" method="post"  class="form-group w-50  mx-auto p-5 my-5" style="border-radius:10%; box-shadow: 0 10px 25px black;">
+    {% csrf_token %}
+    
+    <input  type="text" placeholder="Enter Your Id " class="form-control text-primary border-primary bg-transparent"  name="empid" required>
+    <br>
+    <input type="text"  placeholder="Enter Your Name " class=" text-primary form-control border-primary bg-transparent"  name="empname" required>
+    <br>
+    <select name="department" class="form-control border-primary form-select bg-transparent"  id="" required>
+        <option value="Management">Management</option>
+        <option value="HR">HR</option>
+        <option value="Development">Development</option>
+    </select>
+    <br>
+    <input  placeholder="Enter Your Salary " type="number" name="salary"  class="form-control border-primary form-select bg-transparent text-primary" required>
+    <br>
+    <input type="submit" value="Registration" class="btn btn-outline-secondary form-control">
+    <br>
+    <br>
+ </form>
+</div>
+</div>
+{%endblock%}

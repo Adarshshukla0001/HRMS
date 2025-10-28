@@ -1,0 +1,120 @@
+{% extends 'empindex.html' %}
+{% block body %}
+<div class="container-fluid py-3">
+
+    <!-- Row: Leave Application Form and Leave Status Table -->
+    <div class="row justify-content-center align-items-start">
+        <!-- Column 1: Leave Application Form -->
+        <div class="col-lg-6 m-5 ">
+            <h2 class="text-center text-primary mb-5"><b>Leave Application</b></h2>
+            <form class="form-control shadow-sm" action="{% url 'empzone:empleave' %}" method="post" style="border-radius:10%; box-shadow: 0 10px 20px rgb(199, 27, 27);">
+                {% csrf_token %}
+                
+                
+                <div class="mb-3">
+                    <label>Enter Your ID :</label>
+                    <input type="text" placeholder="Enter Your Id" name="empid" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Enter Your Name :</label>
+                    <input type="text" placeholder="Enter Your Name" name="empname" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Choose Your Department :</label>
+                    <select name="department" class="form-select" required>
+                        <option value="">--Select Department--</option>
+                        <option value="Development">Development</option>
+                        <option value="Hr">HR</option>
+                        <option value="Management">Management</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Enter Subject :</label>
+                    <input type="text" placeholder="Enter Your Subject" name="subject" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label>From :</label>
+                    <input type="date" name="fr" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label>To :</label>
+                    <input type="date" name="to" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Number Of Days :</label>
+                    <input type="number" placeholder="Number of Days" name="frday" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label>Application :</label>
+                    <textarea placeholder="Enter Your Message" name="msg" class="form-control" rows="4" required></textarea>
+                </div>
+                
+                <div>
+                    <input type="submit" value="Submit" class="btn btn-outline-secondary form-control">
+                </div>
+            </form>
+        </div>
+
+        <!-- Column 2: Leave Status Table -->
+        <div class="col-lg-4 justify-content-center  m-5">
+            <h3 class="text-center text-primary mb-5"><b>View Leave Status</b></h3>
+            <table class="table table-hover table-bordered shadow-sm">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Field</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>{{ l.empid }}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ l.empname }}</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>{{ l.department }}</td>
+                    </tr>
+                    <tr>
+                        <td>Subject</td>
+                        <td>{{ l.subject }}</td>
+                    </tr>
+                    <tr>
+                        <td>From</td>
+                        <td>{{ l.fr }}</td>
+                    </tr>
+                    <tr>
+                        <td>To</td>
+                        <td>{{ l.to }}</td>
+                    </tr>
+                    <tr>
+                        <td>Reason</td>
+                        <td>{{ l.msg }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>
+                            {% if l.status %}
+                                <span class="badge bg-success">Accepted</span>
+                            {% else %}
+                                <span class="badge bg-warning text-dark">Waiting</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

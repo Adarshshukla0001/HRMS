@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{ %static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    
+.nav-item a {
+  color: #54b3d6; 
+  text-decoration: none; 
+  padding: 0.5rem;
+  margin: 0; 
+  transition: all 0.4s ease; 
+  display: inline-block; 
+  border-radius: 8px;
+}
+
+.nav-item a:hover {
+  color: #fff; 
+  background-color: #54b3d6; 
+  box-shadow: 0 0 15px rgba(84, 179, 214, 0.6); 
+  transform: translateY(-3px); 
+  padding: 0.5rem 1rem; 
+  margin: 0; 
+  border: 2px solid #54b3d6; 
+  transition: all 0.3s ease; 
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+</style>
+<script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+</head>
+<body>
+    <!-- outer start  -->
+    <div class="container-fluid">
+        <!-- header start   -->
+        <div class="row">
+            <div class="col-sm-1 mx-auto rounded-pill">
+                <img style="mix-blend-mode:hard-light;" src="{%static 'img/logo2.png'%}" alt="" class="w-100 rounded-circle">
+                
+            </div>
+            <div class="col-sm-7 mx-auto my-auto">
+                <h1 style="font-family: Comic Sans MS, sans-serif;" >Human Resource Management System</h3>
+            </div>
+            <div class="col-sm-2 mx-auto my-auto">
+              <div class="container-fluid">
+              <button class="btn btn-outline-secondary nav-item text-dark  fw-bold  ">
+              <a href="{% url 'emplogin'%}">Login</a>
+              </button>
+              <button class="btn btn-outline-secondary nav-item text-dark  fw-bold  ">
+                <a  href="{% url 'adlogin'%}">Admin</a>
+              </button>
+            </div>
+            </div>
+        </div>
+        <!-- header end  -->
+
+        <!-- navbar start   -->
+        <div class="row sticky-top pt-2">
+            <div class="col-sm-12 p-0 m-0">
+                <nav class="navbar navbar-expand-lg navbar-secondary bg-white">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" style="color:rgb(178, 178, 164);"  href="#"><b>Marc Lab</b></a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-lg-0" >
+                          <li class="nav-item" >
+                            <a class="nav-link active text-dark " aria-current="page" href="{%url 'index'%}">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" href="{%url 'about'%}">About</a>
+                          </li>
+                          <li class="nav-item">
+                            
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" href="{%url 'services'%}">Services</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" href="{%url 'contact'%}">Contact Us</a>
+                          </li>
+
+                         
+                        </ul>
+                        <form class="d-flex">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success text-dark" type="submit">Search</button>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <!-- navbar end   -->
+        {% block body %}
+        <!-- slider start   -->
+        <div class="row pt-2">
+            <div class="col-sm-12">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="height: 30vw;">
+                      <div class="carousel-item active h-100">
+                        <img src="{%static 'img/surgical.jpg'%}" class="d-block w-100 h-100" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="{%static 'img/emergency room.jpg'%}" class="h-100 d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="{%static 'img/s3.avif'%}" class="h-100 d-block w-100" alt="...">
+                      </div>
+                    </div>
+                  </div> 
+            </div>
+        </div>
+        <!-- slider end   -->
+
+        <!-- content start  -->
+        
+              
+             
+         
+              <div class="container py-5">
+                <h2 class="text-center text-dark mb-5" style="font-size: 40px; font-weight: 400;"><b>About Us</b></h2>
+              
+                <div class="row align-items-stretch">
+                  <!-- Image Section -->
+                  <div class="col-12 col-md-4 mb-4 mb-md-0 d-flex">
+                    <img src="../static/img/hrms.jpg" alt="HRMS Logo" class="card img-fluid rounded shadow-sm align-self-stretch">
+                  </div>
+              
+                  <!-- Text Section -->
+                  <div class="col-12 col-md-8 d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="lead text-muted" style="font-size: 1.1rem; line-height: 1.6;">
+                        A human resources management system (HRMS) or Human Resources Information System (HRIS) or Human Capital Management (HCM) is a form of Human Resources (HR) software that combines a number of systems and processes to ensure the easy management of human resources, business processes, and data. Human resources software is used by businesses to combine a number of necessary HR functions, such as storing employee data, managing payroll, recruitment, benefits administration (total rewards), time and attendance, employee performance management, and tracking competency and training records.
+                      </p>
+              
+                      <p class="lead text-muted" style="font-size: 1.1rem; line-height: 1.6;">
+                        A human resources management system ensures everyday human resources processes are manageable and easy to access. The field merges human resources as a discipline and, in particular, its basic HR activities and processes with the information technology field. This software category is analogous to how data processing systems evolved into the standardized routines and packages of enterprise resource planning (ERP) software. On the whole, these ERP systems have their origin from software that integrates information from different applications into one universal database. The linkage of financial and human resource modules through one database creates the distinction that separates an HRMS, HRIS, or HCM system from a generic ERP solution.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                            
+<div class="container py-5">
+  <h2 class="text-center text-primary mb-5" style="font-size: 40px; font-weight: 400;"><b>Medicines</b></h2>
+  
+  <!-- Row for cards -->
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <!-- Card 1 -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-lg overflow-hidden">
+        <img src="../static/img/m1.jpeg" class="card-img-top" alt="Acetaminophen">
+        <div class="card-body">
+          <h5 class="card-title text-center text-dark" style="font-size: 1.3rem; font-weight: 500;">Acetaminophen</h5>
+          <p class="card-text text-muted" style="font-size: 1rem; text-align: justify;">
+            Acetaminophen is used to relieve pain and reduce fever. It is commonly used for headaches, muscle aches, and arthritis.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-lg overflow-hidden">
+        <img src="../static/img/m3.jpeg" class="card-img-top" alt="Adderall">
+        <div class="card-body">
+          <h5 class="card-title text-center text-dark" style="font-size: 1.3rem; font-weight: 500;">Adderall</h5>
+          <p class="card-text text-muted" style="font-size: 1rem; text-align: justify;">
+            Adderall is used to treat attention deficit hyperactivity disorder (ADHD) and narcolepsy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-lg overflow-hidden">
+        <img src="../static/img/m2.jpg" class="card-img-top" alt="Amoxicillin">
+        <div class="card-body">
+          <h5 class="card-title text-center text-dark" style="font-size: 1.3rem; font-weight: 500;">Amoxicillin</h5>
+          <p class="card-text text-muted" style="font-size: 1rem; text-align: justify;">
+            Amoxicillin is an antibiotic used to treat a wide variety of bacterial infections. It works by stopping the growth of bacteria.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0 rounded-lg overflow-hidden">
+        <img src="../static/img/m1.jpeg" class="card-img-top" alt="Atorvastatin">
+        <div class="card-body">
+          <h5 class="card-title text-center text-dark" style="font-size: 1.3rem; font-weight: 500;">Atorvastatin</h5>
+          <p class="card-text text-muted" style="font-size: 1rem; text-align: justify;">
+            Atorvastatin is used to lower cholesterol and reduce the risk of heart disease. It works by blocking an enzyme that is responsible for making cholesterol.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                {% endblock %}
+
+            
+    
+        <!-- content end  -->
+
+        <!-- footer  start   -->
+        <div class="row pt-5" style="background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)),url(../static/img/s2.jpg); background-size: cover;">
+            <div class="col-sm-11 p-5 mx-auto my-auto" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../static/img/s2.jpg); background-size: cover; border-radius:30px;">
+              <div class="row mx-auto my-auto " >
+                <div class="col-sm-3 p-5 mx-auto" style="background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background-size: cover; border-radius:30px;"><strong><h2 style="color:rgb(43, 29, 4)">About Us</h2></strong>
+                  <p style="color:rgb(0, 0, 0)">A human resources management system ensures everyday human resources processes are manageable and easy to access. 
+                  </p>
+                </div>
+                <div class="col-sm-3 p-5 mx-auto " style=" background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background-size: cover; border-radius:30px;"><strong><h2 style="color:rgb(43,29,4); ">Contact Us</h2></strong>  
+                  <p><i class="fas fa-map-marker-alt"></i> 3/213, Kursi Rd, near Gudamba Thana, Sector J, Jankipuram,<br>
+                    Lucknow, Uttar Pradesh 226021</p>
+                  <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                  <p><i class="fas fa-envelope"></i> info@example.com</p></div>
+                <div id="a" class="col-sm-3 mx-auto p-5" style="background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background-size: cover; border-radius:30px;" ><strong><h2 style="color:rgb(43,29,4)">Follow us</h2></strong>
+                <a href="#"><i class="fa-brands fa-twitter" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-brands fa-facebook" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-solid fa-music" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-brands fa-instagram" style="font-size:24px; background-color:#fff;color:#e8486d;"></i></a>
+                </div>
+                
+              </div>
+
+            </div>
+            <div class="col-sm-10 mx-auto my-auto text-center">
+              <h5><span>&copy; All Copyright Reserved To <strong style="color:orange">SOFTPRO INDIA</strong>
+              || ReDesigned By <strong style="color:orange">ADARSH SHUKLA </strong></span></h3>
+
+            </div>
+            <br>
+            <br><br><br>
+        </div>
+        <!-- footer end   -->
+
+    </div>
+    <!-- outer end  -->
+</body>
+</html>

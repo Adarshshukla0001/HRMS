@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% block body %}
+
+<h2 class="text-center p-5 text-primary"><b>View Employee</b></h2>
+<div class="container">
+    <table class="table  table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in emp %}
+            <tr>
+                <td>{{ forloop.counter }}</td> 
+                <td>{{ i.empid }}</td>
+                <td>{{ i.empname }}</td>
+                <td>{{ i.department }}</td>
+                <td>{{ i.salary }}</td>
+                <td>
+                    <a href="{% url 'adminzone:deleteemp' i.empid %}" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+

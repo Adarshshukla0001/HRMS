@@ -1,0 +1,21 @@
+{%extends 'index.html'%}
+{%block body%}
+<div class="row">
+  <h1 class="text-center pt-5 "><b>Employee Login</b></h1>
+  <div class="col-sm-12">
+<form action="{%url 'validateemp'%}" method="post"  class="form-group w-50 border mx-auto p-5 my-5" style="border-radius:10%; box-shadow: 0 10px 25px black;">
+  {% csrf_token %}
+  <p class="text-center text-light fw-bold">{{msg}}</p>
+  <input  type="text" placeholder="Enter Your Emp Id " class="form-control text-primary  " name="aid" required>
+  <br>
+  <input type="password"  placeholder="Enter Your Emp Name " class="text-primary form-control"  name="apass" required>
+  <br>
+  
+  <input type="submit" value="Login" class="btn btn-outline-secondary fw-bold text-dark form-control" style="color: white;">
+  <br>
+  <br>
+  <h6><a href="" style="text-decoration: none; ">Forgot Password</a></h6> 
+</form>
+</div>
+</div>
+{%endblock%}

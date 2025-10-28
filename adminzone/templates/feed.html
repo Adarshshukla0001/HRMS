@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% block body %}
+
+<h2 class="text-center p-5 text-primary">View Feedback</h2>
+<div class="container">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Department</th>
+                <th>Feedback Type</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in f %}
+            <tr>
+                <td>{{ forloop.counter }}</td> 
+                <td>{{ i.empid }}</td>
+                <td>{{ i.empname }}</td>
+                <td>{{ i.department }}</td>
+                <td>{{ i.feedtype }}</td>
+                <td>{{ i.msg }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+

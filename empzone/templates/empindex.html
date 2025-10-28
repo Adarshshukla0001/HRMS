@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+.nav-item a {
+  color: #54b3d6; 
+  text-decoration: none; 
+  padding: 0.5rem;
+  margin: 0; 
+  transition: all 0.4s ease; 
+  display: inline-block; 
+  border-radius: 8px; 
+}
+
+.nav-item a:hover {
+  color: #fff;
+  background-color: #54b3d6; 
+  box-shadow: 0 0 15px rgba(84, 179, 214, 0.6); 
+  transform: translateY(-3px); 
+  padding: 0.5rem 1rem; 
+  margin: 0; 
+  border: 2px solid #54b3d6; 
+  transition: all 0.3s ease; 
+}
+
+    </style>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+</head>
+<body>
+    <!-- outer start  -->
+    <div class="container-fluid">
+        <!-- header start   -->
+        <div class="row p-0 m-0">
+            <div class="col-sm-1 mx-auto rounded-pill">
+                <img style="mix-blend-mode:hard-light;" src="{%static 'img/logo2.png'%}" alt="" class="w-100 rounded-circle">
+                
+            </div>
+            <div class="col-sm-7 mx-auto my-auto">
+                <h1 style="font-family: Comic Sans MS, sans-serif;" >Human Resource Management System</h3>
+            </div>
+            <div class="col-sm-2 mx-auto my-auto">
+              <button class="btn btn-outline-secondary nav-item text-dark  fw-bold  "><a href="{% url 'logout'%}">Logout</a></button>
+            </div>
+        </div>
+        <!-- header end  -->
+
+        <!-- navbar start   -->
+        <div class="row sticky-top pt-2 ">
+            <div class="col-sm-11 p-0 m-0">
+                <nav class="navbar navbar-expand-lg p-0 m-0">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" style="color:rgb(167, 167, 157);" href="">Employee</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark " aria-current="page" href="{% url 'empzone:index'%}">My Profile</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" href="{% url 'empzone:nfc'%}">View Notification</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark " href="{% url 'empzone:empfeed'%}">Send Feedback</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" href="{% url 'empzone:empleave'%}"> Leave</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active text-dark" href="{% url 'empzone:empsal'%}"> Salary</a>
+                          </li>
+                        </ul>
+                        
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <!-- navbar end   -->
+        {% block body %}
+        <!-- slider start   -->
+        <div class="row pt-2">
+            <div class="col-sm-12 ">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="height: 30vw;">
+                      <div class="carousel-item active h-100">
+                        <img src="{%static 'img/s2.jpeg'%}" class="d-block w-100 h-100" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="{%static 'img/surgical.jpg'%}" class="h-100 d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item h-100">
+                        <img src="{%static 'img/s3.avif'%}" class="h-100 d-block w-100" alt="...">
+                      </div>
+                    </div>
+                  </div> 
+            </div>
+        </div>
+        <!-- slider end   -->
+
+        <!-- content start  -->
+        <div class="row pt-lg-2 pb-2 justify-content-center">
+          <div style="padding-left: 300px;" class="col-md-10 col-lg-7">
+              
+              <div class="profile-container p-3">
+                  <h3 class="text-center p-4 text-primary"><b>View Profile</b></h3>
+                  <br>
+                  <table class="table table-bordered table-hover">
+                      <thead class="table-primary">
+                          <tr>
+                              <th>Sr. No.</th>
+                              <th>Field</th>
+                              <th>Value</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>1</td>
+                              <td>Id:</td>
+                              <td>{{ emp.empid }}</td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>Name:</td>
+                              <td>{{ emp.empname }}</td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>Department:</td>
+                              <td>{{ emp.department }}</td>
+                          </tr>
+                          <tr>
+                              <td>4</td>
+                              <td>Salary:</td>
+                              <td>{{ emp.salary }}</td>
+                          </tr>
+                          <tr>
+                              <td>5</td>
+                              <td>Mobile:</td>
+                              <td>{{ emp.mobile }}</td>
+                          </tr>
+                          <tr>
+                              <td>6</td>
+                              <td>Email:</td>
+                              <td>{{ emp.email }}</td>
+                          </tr>
+                          <tr>
+                              <td>7</td>
+                              <td>Address:</td>
+                              <td>{{ emp.address }}</td>
+                          </tr>
+                          <tr>
+                              <td>8</td>
+                              <td>Gender:</td>
+                              <td>{{ emp.gender }}</td>
+                          </tr>
+                          <tr>
+                              <td>9</td>
+                              <td>Qualification:</td>
+                              <td>{{ emp.qua }}</td>
+                          </tr>
+                          <tr>
+                              <td>10</td>
+                              <td>Experience:</td>
+                              <td>{{ emp.exp }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div style="padding-left: 200px; padding-bottom: 40px;">
+                  <a href="{% url 'empzone:updateemp' %}" class="btn btn-primary text-center update-btn">Update</a>
+              </div>
+              {% endblock %}
+          </div>
+          <div class="col-md-4 col-lg-3">
+              {% block side %}
+              <!-- Optional side content can be added here -->
+              {% endblock %}
+          </div>
+      </div>
+      
+    
+       
+        <!-- content end  -->
+
+        <!-- footer  start   -->
+        <div class="row pt-5" style="background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)),url(../static/img/s2.jpg); background-size: cover;">
+            <div class="col-sm-11 p-5 mx-auto my-auto" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../static/img/s2.jpg); background-size: cover; border-radius:30px;">
+              <div class="row mx-auto my-auto " >
+                <div class="col-sm-3 p-5 mx-auto" style="background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background-size: cover; border-radius:30px;"><strong><h2 style="color:rgb(43, 29, 4)">About Us</h2></strong>
+                  <p style="color:rgb(0, 0, 0)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil magnam autem voluptatum aut corrupti explicabo quisquam, accusantium ipsam repellendus a.</p>
+                </div>
+                <div class="col-sm-3 p-5 mx-auto " style=" background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background-size: cover; border-radius:30px;"><strong><h2 style="color:rgb(43,29,4); ">Contact Us</h2></strong>  
+                  <p><i class="fas fa-map-marker-alt"></i> 3/213, Kursi Rd, near Gudamba Thana, Sector J, Jankipuram,<br>
+                    Lucknow, Uttar Pradesh 226021</p>
+                  <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                  <p><i class="fas fa-envelope"></i> info@example.com</p></div>
+                <div id="a" class="col-sm-3 mx-auto p-5" style="background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)); background-size: cover; border-radius:30px;" ><strong><h2 style="color:rgb(43,29,4)">Follow us</h2></strong>
+                <a href="#"><i class="fa-brands fa-twitter" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-brands fa-facebook" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-solid fa-music" style="font-size:24px; background-color:#fff"></i></a>
+                <a href=""><i class="fa-brands fa-instagram" style="font-size:24px; background-color:#fff;color:#e8486d;"></i></a>
+                </div>
+                
+              </div>
+
+            </div>
+            <div class="col-sm-10 mx-auto my-auto text-center">
+              <h5><span>&copy; All Copyright Reserved To <strong style="color:orange">SOFTPRO INDIA</strong>
+              || ReDesigned By <strong style="color:orange">ADARSH SHUKLA </strong></span></h3>
+
+            </div>
+            <br>
+            <br><br><br>
+        </div>
+        <!-- footer end   -->
+
+    </div>
+    <!-- outer end  -->
+</body>
+</html>

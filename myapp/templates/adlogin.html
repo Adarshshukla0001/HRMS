@@ -1,0 +1,21 @@
+{%extends 'index.html'%}
+{%block body%}
+<div class="row">
+  <h1 class="text-center pt-5 "><b>Admin Login</b></h1>
+  <div class="col-sm-12">
+<form action="{%url 'validateuser'%}" method="post"  class="form-group w-50 border mx-auto p-5 my-5" style="border-radius:10%; box-shadow: 0 10px 25px rgb(83, 68, 68);">
+  {% csrf_token %}
+  
+  <input  type="text" placeholder="Enter Your Id " class="form-control text-primary  bg-transparent" name="aid" required>
+  <br>
+  <input type="password"  placeholder="Enter Your Password " class="text-primary form-control  bg-transparent"  name="apass"required>
+  
+  <br>
+  <input type="submit" value="Login" class="btn btn-outline-secondary fw-bold text-dark form-control" style="color: white;">
+  <br>
+  <br>
+  <h6><a href="" style="text-decoration: none; ">Forgot Password</a></h6> 
+</form>
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,20 @@
+{%extends 'empindex.html'%}
+{%block body%}
+<h1 class="text-center text-info p-5"><b>Update</b></h1>
+<form action="{%url 'empzone:updateemp'%}" method="post" class="form-group w-75 mx-auto border border-primary rounded-3 p-5 bg-secondary">
+{%csrf_token%}
+
+<input type="hidden" name="empid" value="{{e.empid}}">
+<input name="mobile" value="{{e.mobile}}" class="form-control" type="number" placeholder="Enter your number"><br>
+<input name="email" value="{{e.email}}" class="form-control"type="email" placeholder="Enter your Email"><br>
+Gender:
+&nbsp;  &nbsp;   &nbsp; &nbsp; <input type="radio" name="gender" value="male">Male &nbsp;  &nbsp;  &nbsp;  &nbsp;
+
+<input type="radio" name="gender" value="female">Female
+<br> <br>
+<input name="qua" value="{{e.qua}}" class="form-control" type="text" placeholder="Enter your Quelification"><br>
+<input name="exp" value="{{e.exp}}" class="form-control" type="text" placeholder="Enter your Experience"><br>
+<textarea class="form-control" name="address" id="" placeholder="Enter your Address" cols="30" rows="10">{{e.address}}</textarea><br>
+<input class="form-control bg-primary" type="submit" value="Submit">
+</form>
+{%endblock%}
