@@ -2,5 +2,5 @@ Django>=4.2,<6.0
 python-dotenv>=1.0.0
 
 # Add other runtime dependencies here. To capture exact installed packages run locally:
-#   pip freeze > requirements.txt
+#   pip freeze > [requirements.txt](http://_vscodecontentref_/14)
 
